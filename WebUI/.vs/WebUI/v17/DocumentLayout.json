@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\Repository Pattern\\WebUI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{982B614D-6517-431E-BBFB-8648E7B58084}|WebUI.csproj|d:\\repository pattern\\webui\\domain\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{982B614D-6517-431E-BBFB-8648E7B58084}|WebUI.csproj|solutionrelative:domain\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{982B614D-6517-431E-BBFB-8648E7B58084}|WebUI.csproj|d:\\repository pattern\\webui\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{982B614D-6517-431E-BBFB-8648E7B58084}|WebUI.csproj|solutionrelative:controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -83,14 +83,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "D:\\Repository Pattern\\WebUI\\Domain\\Mapping\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "Domain\\Mapping\\MappingProfile.cs",
-              "ToolTip": "D:\\Repository Pattern\\WebUI\\Domain\\Mapping\\MappingProfile.cs",
-              "RelativeToolTip": "Domain\\Mapping\\MappingProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAWAAAA",
+              "Title": "BookController.cs",
+              "DocumentMoniker": "D:\\Repository Pattern\\WebUI\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookController.cs",
+              "ToolTip": "D:\\Repository Pattern\\WebUI\\Controllers\\BookController.cs",
+              "RelativeToolTip": "Controllers\\BookController.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAYwDcAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T17:01:54.244Z",
+              "WhenOpened": "2025-01-20T14:15:33.452Z",
               "EditorCaption": ""
             }
           ]
