@@ -10,8 +10,8 @@ namespace WebUI.Controllers
     public class BookController(IBookService bookService, IMapper mapper) : ControllerBase
     {        
         [HttpGet]
-        [Route("GetAll")]
-        public async Task<IActionResult> GetAllAsync()
+        [Route("GetAllBook")]
+        public async Task<IActionResult> GetAllBookAsync()
         {
             var books = await bookService.GetAllBookAsync();
             var bookDTO = mapper.Map<List<GetBookDTO>>(books);

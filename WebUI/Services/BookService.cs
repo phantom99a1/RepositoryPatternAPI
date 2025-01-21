@@ -30,9 +30,15 @@ namespace WebUI.Services
         public async Task<(bool status, string? message)> CreateNewBookAsync(CreateBook createBook)
         {
             using var transaction = await bookRepository.BeginTransactionAsync();
+            var now = DateTime.Now;
+            var user = "admin";
             try
             {
                 var book = mapper.Map<Book>(createBook);
+                book.CreateDateTime = now;
+                book.CreateUser = user;
+                book.LastModifiedDateTime = now;
+                book.LastModifiedUser = user;
                 await bookRepository.CreateAsync(book);
                 await transaction.CommitAsync();
                 return (true, null);
@@ -47,9 +53,13 @@ namespace WebUI.Services
         public async Task<(bool status, string? message)> UpdateBookAsync(UpdateBook updateBook)
         {
             using var transaction = await bookRepository.BeginTransactionAsync();
+            var now = DateTime.Now;
+            var user = "admin";
             try
             {
-                var book = mapper.Map<Book>(updateBook);
+                var book = mapper.Map<Book>(updateBook);                
+                book.LastModifiedDateTime = now;
+                book.LastModifiedUser = user;
                 await bookRepository.UpdateAsync(book);
                 await transaction.CommitAsync();
                 return (true, null);

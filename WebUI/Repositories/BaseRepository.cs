@@ -5,17 +5,11 @@ using WebUI.Data;
 
 namespace WebUI.Repositories
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T> where T : class
     {
-        private readonly ApplicationDbContext _context;
-        public BaseRepository(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
         public async Task<IDbContextTransaction> BeginTransactionAsync()
         {
-            return await _context.Database.BeginTransactionAsync();
+            return await context.Database.BeginTransactionAsync();
         }
 
         public async Task CreateAsync(T entity)
@@ -28,8 +22,8 @@ namespace WebUI.Repositories
             {
                 try
                 {
-                    await _context.Set<T>().AddAsync(entity);
-                    await _context.SaveChangesAsync();
+                    await context.Set<T>().AddAsync(entity);
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception ex)
                 {
@@ -48,8 +42,8 @@ namespace WebUI.Repositories
             {
                 try
                 {
-                    _context.Set<T>().Remove(entity);
-                    await _context.SaveChangesAsync();
+                    context.Set<T>().Remove(entity);
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception ex)
                 {
@@ -60,24 +54,24 @@ namespace WebUI.Repositories
 
         public Task<List<T>> GetAllAsync(params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = _context.Set<T>();
+            IQueryable<T> query = context.Set<T>();
             query = includes.Aggregate(query, (current, include) => current.Include(include));
             return query.ToListAsync();
         }
 
         public ApplicationDbContext GetContext()
         {
-            return _context;
+            return context;
         }
 
         public IQueryable<T> GetQueryable()
         {
-            return _context.Set<T>();
+            return context.Set<T>();
         }
 
         public async Task<T?> GetByIdAsync(Guid id, params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = _context.Set<T>();
+            IQueryable<T> query = context.Set<T>();
             query = includes.Aggregate(query, (current, include) => current.Include(include));
             return await query.FirstOrDefaultAsync(e => EF.Property<Guid>(e, "Id") == id);
         }
@@ -92,8 +86,8 @@ namespace WebUI.Repositories
             {
                 try
                 {
-                    _context.Set<T>().Update(entity);
-                    await _context.SaveChangesAsync();
+                    context.Set<T>().Update(entity);
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception ex)
                 {
